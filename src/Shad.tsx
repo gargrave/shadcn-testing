@@ -28,6 +28,7 @@ function Shad() {
       <div className="flex flex-wrap place-content-center gap-1">
         <Button variant={"default"}>Primary</Button>
         <Button variant={"secondary"}>Secondary</Button>
+        <Button variant={"success"}>Success</Button>
         <Button variant={"destructive"}>Destructive</Button>
         <Button variant={"ghost"}>Ghost</Button>
         <Button variant={"link"}>Link</Button>
