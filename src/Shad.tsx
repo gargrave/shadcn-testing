@@ -12,6 +12,13 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
 } from "./components/ui/";
 
 const wait = () => new Promise((resolve) => setTimeout(resolve, 1000));
@@ -25,7 +32,7 @@ function Shad() {
       <Heading tag="h1">ShadCN</Heading>
 
       <Heading tag="h2">Button</Heading>
-      <div className="flex flex-wrap place-content-center gap-1">
+      <div className="flex flex-wrap place-content-center gap-1 mb-4">
         <Button variant={"default"}>Primary</Button>
         <Button variant={"secondary"}>Secondary</Button>
         <Button variant={"success"}>Success</Button>
@@ -36,7 +43,7 @@ function Shad() {
       </div>
 
       <Heading tag="h2">Popover</Heading>
-      <div className="flex place-content-center">
+      <div className="flex place-content-center mb-4">
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="outline">Open popover</Button>
@@ -56,7 +63,7 @@ function Shad() {
       </div>
 
       <Heading tag="h2">Dialog</Heading>
-      <div className="flex place-content-center">
+      <div className="flex place-content-center mb-4">
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
             <Button variant="outline">Gimme a Dialog</Button>
@@ -69,20 +76,7 @@ function Shad() {
                 Make changes to your profile here. Click save when you're done.
               </DialogDescription>
             </DialogHeader>
-            {/* <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
-          </div>
-        </div> */}
+
             <DialogFooter>
               <Button
                 isLoading={isLoading}
@@ -100,6 +94,29 @@ function Shad() {
             </DialogFooter>
           </DialogContent>
         </Dialog>
+      </div>
+
+      <Heading tag="h2">Select</Heading>
+      <div className="flex place-content-center mb-4">
+        <Select
+          onValueChange={(value) => {
+            console.log(`Selected: ${value}`);
+          }}
+        >
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Select a fruit" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Fruits</SelectLabel>
+              <SelectItem value="apple">Apple</SelectItem>
+              <SelectItem value="banana">Banana</SelectItem>
+              <SelectItem value="blueberry">Blueberry</SelectItem>
+              <SelectItem value="grapes">Grapes</SelectItem>
+              <SelectItem value="pineapple">Pineapple</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
     </div>
   );
